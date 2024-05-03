@@ -58,3 +58,12 @@ Before you start trying out this code by yourself, make sure you have:
 - An AWS account: https://portal.aws.amazon.com/billing/signup#/start
 - Credentials setup: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-creds
 - Installed `aws-cdk` globally: `npm install -g aws-cdk` https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html
+
+### Useful commands
+
+- `npm run build` compile typescript to js
+- `npm run watch` watch for changes and compile
+- `npm run test` perform the jest unit tests
+- `npx cdk deploy` deploy this stack to your default AWS account/region
+- `npx cdk diff` compare deployed stack with current state
+- `npx cdk synth` emits the synthesized CloudFormation template
