@@ -1,2 +1,3 @@
-// Use prettier's defaults
-module.exports = {};
+module.exports = {
+  trailingComma: "es5",
+};
