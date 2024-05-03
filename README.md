@@ -19,11 +19,13 @@ Development:
 - [Jest](https://jestjs.io/) - For running test suites
 - [ESlint](https://eslint.org/) and [Prettier](https://prettier.io/) - For clean, consistent, correct code
 - [VSCode configuration](https://code.visualstudio.com/docs/getstarted/settings) - For quick developer onboarding
-- [Docker compose](https://docs.docker.com/compose/) - For running dependencies locally
+- [Docker compose](https://docs.docker.com/compose/) - For running infrastructure locally
 
-Deployment:
+Production:
 
-- [AWS CDK](https://aws.amazon.com/cdk/) - To deploy on AWS
+- [AWS CDK](https://aws.amazon.com/cdk/) - Deploy on AWS
+- TODO - Observability
+- TODO - Exception reporting
 
 ## Getting Started
 
@@ -46,3 +48,13 @@ npm install
 ```sh
 npm run dev
 ```
+
+## Going to production
+
+TODO: Take more inspo from https://github.com/wikka/aws-cdk-demo
+
+Before you start trying out this code by yourself, make sure you have:
+
+- An AWS account: https://portal.aws.amazon.com/billing/signup#/start
+- Credentials setup: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html#cli-configure-quickstart-creds
+- Installed `aws-cdk` globally: `npm install -g aws-cdk` https://docs.aws.amazon.com/cdk/latest/guide/getting_started.html
