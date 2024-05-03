@@ -54,6 +54,8 @@ npm run dev
 - `npm run dev` run the app in dev mode (hot module refresh)
 - `npm run start` run the app in production mode
 - `npm run test` perform the jest unit tests
+- `npm run lint` run linters
+- `npm run prettier` run prettier (and `npm run prettier:fix` to apply the changes)
 - `npx cdk deploy` deploy this stack to your default AWS account/region
 - `npx cdk diff` compare deployed stack with current state
 - `npx cdk synth` emits the synthesized CloudFormation template

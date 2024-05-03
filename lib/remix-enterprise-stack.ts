@@ -1,8 +1,9 @@
-import * as cdk from 'aws-cdk-lib';
-import { Construct } from 'constructs';
+import * as cdk from "aws-cdk-lib";
+import { Construct } from "constructs";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class RemixEnterpriseStack extends cdk.Stack {
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 

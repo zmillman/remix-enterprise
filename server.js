@@ -10,8 +10,6 @@ const viteDevServer =
         })
       );
 
-const a = 2;
-
 const app = express();
 app.use(
   viteDevServer ? viteDevServer.middlewares : express.static("build/client")
