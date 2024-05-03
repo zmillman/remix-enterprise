@@ -1,27 +1,40 @@
 {
   "name": "remix-enterprise",
   "version": "0.1.0",
+  "type": "module",
   "bin": {
     "remix-enterprise": "bin/remix-enterprise.js"
   },
   "scripts": {
+    "dev": "node ./server.js",
+    "start": "cross-env NODE_ENV=production node ./server.js",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
   },
   "devDependencies": {
+    "@remix-run/dev": "^2.9.1",
     "@types/jest": "^29.5.12",
     "@types/node": "20.12.7",
+    "aws-cdk": "2.140.0",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
-    "aws-cdk": "2.140.0",
     "ts-node": "^10.9.2",
-    "typescript": "~5.4.5"
+    "typescript": "~5.4.5",
+    "vite": "^5.2.11"
   },
   "dependencies": {
+    "@remix-run/express": "^2.9.1",
+    "@remix-run/node": "^2.9.1",
+    "@remix-run/react": "^2.9.1",
     "aws-cdk-lib": "2.140.0",
     "constructs": "^10.0.0",
+    "cross-env": "^7.0.3",
+    "express": "^4.19.2",
+    "isbot": "^4.4.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "source-map-support": "^0.5.21"
   }
 }
