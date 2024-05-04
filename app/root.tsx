@@ -1,7 +1,7 @@
 import { Links, Meta, MetaFunction, Outlet, Scripts } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import "@radix-ui/themes/styles.css";
-import { Button, Theme } from "@radix-ui/themes";
+import { Container, Theme } from "@radix-ui/themes";
 
 export const links: LinksFunction = () => {
   return [{ rel: "icon", href: "/favicon-32.png" }];
@@ -21,8 +21,9 @@ export default function App() {
       </head>
       <body>
         <Theme>
-          <Button>Hey world 👋</Button>
-          <Outlet />
+          <Container size="1" my="8">
+            <Outlet />
+          </Container>
 
           <Scripts />
         </Theme>
