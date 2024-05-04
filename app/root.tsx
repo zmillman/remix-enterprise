@@ -8,8 +8,8 @@ export const links: LinksFunction = () => {
 };
 
 export const meta: MetaFunction = () => {
-  return [{title: "Remix Enterprise"}]
-}
+  return [{ title: "Remix Enterprise" }];
+};
 
 export default function App() {
   return (

@@ -5,7 +5,9 @@ export default function HomePage() {
   return (
     <>
       <Heading mb="4">Welcome to the app</Heading>
-      <Text mb="4" as="p">This is the homepage</Text>
+      <Text mb="4" as="p">
+        This is the homepage
+      </Text>
       <Button asChild>
         <Link to="/login">Sign in</Link>
       </Button>
