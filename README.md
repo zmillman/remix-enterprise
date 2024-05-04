@@ -1,6 +1,6 @@
 # Remix.run Enterprise Boilerplate
 
-Inspired by https://github.com/Blazity/next-enterprise
+Inspired by [Blazity/next-enterprise](https://github.com/Blazity/next-enterprise), this sets you up with a boilerplate app that's ready for enterprise app development. This template pre-implements a skeleton app with support for Google Oauth login with users segmented by their organization's email domain.
 
 ## Features
 
@@ -8,7 +8,7 @@ With this template, you get a full app stack:
 
 - [Remix](https://remix.run/) on [Express](https://expressjs.com/) - Fast and developer-friendly
 - [Joy UI](https://mui.com/joy-ui/getting-started/) - MUI's customizable component library
-- [Authjs](https://authjs.dev/) - Integration with all the big auth providers
+- [Remix Auth](https://github.com/sergiodxa/remix-auth) - Authentication through [several providers](https://github.com/sergiodxa/remix-auth/discussions/111)
 - [Prisma](https://www.prisma.io/) - Easy persistence management
 - [Postgres](https://www.postgresql.org/) - The most popular SQL database
 - TBD - For running async jobs
@@ -31,19 +31,19 @@ Production:
 
 To get started with this boilerplate, follow these steps:
 
-1. Fork & clone the repository
+1\. Fork & clone the repository
 
 ```sh
 git clone https://github.com/{your_username}/remix-enterprise
 ```
 
-2. Install the dependencies
+2\. Install the dependencies
 
 ```sh
 npm install
 ```
 
-3. Run the dev server and open [localhost:3000](http://localhost:3000/)
+3\. Run the dev server and open [localhost:3000](http://localhost:3000/)
 
 ```sh
 npm run dev
