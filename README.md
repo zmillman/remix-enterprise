@@ -43,7 +43,15 @@ git clone https://github.com/{your_username}/remix-enterprise
 npm install
 ```
 
-3\. Run the dev server and open [localhost:3000](http://localhost:3000/)
+3\. Follow the steps on [the Google documentation](https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred) to configure a new application and get a client ID and secret. (The callback url is `http://localhost:3000/auth/google/callback`)
+
+```
+# .env.local
+GOOGLE_CLIENT_ID=<your client id>
+GOOGLE_CLIENT_SECRET=<your client secret>
+```
+
+4\. Run the dev server and open [localhost:3000](http://localhost:3000/)
 
 ```sh
 npm run dev
