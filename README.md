@@ -51,6 +51,12 @@ GOOGLE_CLIENT_ID=<your client id>
 GOOGLE_CLIENT_SECRET=<your client secret>
 ```
 
+Then configure a secret for encrypting session cookies:
+
+```sh
+echo "AUTH_SECRET=`openssl rand -base64 33`" >> .env.local
+```
+
 4\. Run the dev server and open [localhost:3000](http://localhost:3000/)
 
 ```sh

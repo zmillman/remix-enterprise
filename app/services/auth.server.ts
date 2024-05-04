@@ -7,8 +7,8 @@ import { GoogleStrategy } from "remix-auth-google";
 // TODO: replace `unknown` with a real user type
 export const authenticator = new Authenticator<unknown>(sessionStorage);
 
-const googleClientId: string | undefined = process.env.GOOGLE_CLIENT_ID;
-const googleClientSecret: string | undefined = process.env.GOOGLE_CLIENT_SECRET;
+const googleClientId = process.env.GOOGLE_CLIENT_ID;
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 if (!googleClientId) {
   throw new Error("You must provide a GOOGLE_CLIENT_ID");
@@ -29,7 +29,7 @@ const googleStrategy = new GoogleStrategy(
     // Get the user data from your DB or API using the tokens and profile
     throw new Error(`Got user: ${JSON.stringify(profile)}`);
     // return User.findOrCreate({ email: profile.emails[0].value })
-  },
+  }
 );
 
 authenticator.use(googleStrategy);
