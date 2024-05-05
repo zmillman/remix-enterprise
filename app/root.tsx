@@ -1,4 +1,4 @@
-import { json, Links, Meta, type MetaFunction, Outlet, Scripts, } from "@remix-run/react";
+import { json, Links, Meta, type MetaFunction, Outlet, Scripts, useLoaderData, } from "@remix-run/react";
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import "@radix-ui/themes/styles.css";
 import { Container, Theme } from "@radix-ui/themes";
@@ -19,6 +19,8 @@ export const loader = async ({request}: LoaderFunctionArgs) => {
 }
 
 export default function App() {
+  const data = useLoaderData<typeof loader>();
+
   return (
     <html>
       <head>
@@ -28,7 +30,7 @@ export default function App() {
       </head>
       <body>
         <Theme>
-          <AppShell>
+          <AppShell user={data.user}>
             <Container size="1" my="8">
               <Outlet />
             </Container>

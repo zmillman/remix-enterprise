@@ -5,7 +5,10 @@ import { GoogleStrategy } from "remix-auth-google";
 // Create an instance of the authenticator, pass a generic with what
 // strategies will return and will store in the session
 // TODO: replace `unknown` with a real user type
-export const authenticator = new Authenticator<unknown>(sessionStorage);
+export const authenticator = new Authenticator<unknown>(sessionStorage, {
+  sessionErrorKey: "auth-error",
+  throwOnError: true,
+});
 
 const googleClientId = process.env.GOOGLE_CLIENT_ID;
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
