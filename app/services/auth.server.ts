@@ -1,11 +1,17 @@
 import { Authenticator } from "remix-auth";
-import { sessionStorage } from "./session.server";
+import { commitSession, getSession, sessionStorage } from "./session.server";
 import { GoogleStrategy } from "remix-auth-google";
+import { redirect } from "@remix-run/server-runtime";
+
+// TODO: Make this a persisted schema
+interface User {
+  name: string;
+  email: string;
+}
 
 // Create an instance of the authenticator, pass a generic with what
 // strategies will return and will store in the session
-// TODO: replace `unknown` with a real user type
-export const authenticator = new Authenticator<unknown>(sessionStorage, {
+export const authenticator = new Authenticator<User>(sessionStorage, {
   sessionErrorKey: "auth-error",
   throwOnError: true,
 });
@@ -37,3 +43,23 @@ const googleStrategy = new GoogleStrategy(
 );
 
 authenticator.use(googleStrategy);
+
+/**
+ * Get the authenticated user, or redirect to `/login` if they're not signed in
+ */
+export const authenticatedUser = async (request: Request) => {
+  const user = await authenticator.isAuthenticated(request);
+
+  if (user) {
+    // TODO: load user data from the database instead of storing in the session
+    return user;
+  } else {
+    const session = await getSession(request.headers.get("Cookie"));
+    session.flash(authenticator.sessionErrorKey, {
+      message: "You must be signed in to view that page",
+    });
+    throw redirect("/login", {
+      headers: { "Set-Cookie": await commitSession(session) }, // persist flash message
+    });
+  }
+};

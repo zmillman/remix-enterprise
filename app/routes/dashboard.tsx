@@ -1,11 +1,10 @@
 import { Box, Heading, Text } from "@radix-ui/themes";
-import { getSession } from "../services/session.server";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import { authenticatedUser } from "../services/auth.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  const session = await getSession(request.headers.get("Cookie"));
-  return json({ user: session.data.user });
+  return json({ user: await authenticatedUser(request) });
 };
 
 export default function DashboardPage() {

@@ -14,9 +14,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
   } else {
     const session = await getSession(request.headers.get("Cookie"));
     const authError = session.get(authenticator.sessionErrorKey);
-    if (authError) {
-      console.error(authError);
-    }
 
     return json(
       { authErrorMessage: authError?.message },

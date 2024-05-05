@@ -17,7 +17,9 @@ export default function AppShell(
   return (
     <Box>
       <Flex justify="between">
-        <Box>Logo here</Box>
+        <Box>
+          <Link to="/">Logo here</Link>
+        </Box>
         <Box>
           {props.user ? (
             <Form action="/logout" method="POST">
