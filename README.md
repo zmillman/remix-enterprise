@@ -8,7 +8,7 @@ With this template, you get a full app stack:
 
 - [Remix](https://remix.run/) on [Express](https://expressjs.com/) - Fast and developer-friendly
 - [Joy UI](https://mui.com/joy-ui/getting-started/) - MUI's customizable component library
-- [Remix Auth](https://github.com/sergiodxa/remix-auth) - Authentication through [several providers](https://github.com/sergiodxa/remix-auth/discussions/111)
+- [Remix Auth](https://github.com/sergiodxa/remix-auth) - Authentication through [several providers](https://github.com/sergiodxa/remix-auth/discussions/111) ([Auth.js](https://authjs.dev/) would be preferred but doesn't integrate with Remix...[yet](https://authjs.dev/getting-started/integrations))
 - [Prisma](https://www.prisma.io/) - Easy persistence management
 - [Postgres](https://www.postgresql.org/) - The most popular SQL database
 - TBD - For running async jobs
