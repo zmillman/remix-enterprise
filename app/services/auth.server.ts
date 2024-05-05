@@ -39,7 +39,7 @@ const googleStrategy = new GoogleStrategy(
     // return User.findOrCreate({ email: profile.emails[0].value })
 
     return { name: profile.displayName, email: profile.emails[0].value };
-  }
+  },
 );
 
 authenticator.use(googleStrategy);

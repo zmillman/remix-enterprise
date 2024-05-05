@@ -12,7 +12,7 @@ interface AppShellProps {
  * Wraps content with a topbar for signing in / out
  */
 export default function AppShell(
-  props: React.PropsWithChildren<AppShellProps>
+  props: React.PropsWithChildren<AppShellProps>,
 ) {
   return (
     <Box>

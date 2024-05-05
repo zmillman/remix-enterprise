@@ -19,7 +19,9 @@ export default function HomePage() {
         the <Link to="/dashboard">Dashboard</Link> if you're signed in.
       </Text>
       <Heading size="3">Session</Heading>
-      <pre><Code>{JSON.stringify(data.session, null, 2)}</Code></pre>
+      <pre>
+        <Code>{JSON.stringify(data.session, null, 2)}</Code>
+      </pre>
     </>
   );
 }
