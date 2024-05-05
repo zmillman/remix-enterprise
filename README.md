@@ -64,7 +64,7 @@ And some settings for the database:
 DATABASE_USER=app
 DATABASE_DB=app
 DATABASE_PASSWORD=S3cre7
-DATABASE_URL="postgresql://app:S3cre7@localhost:5432/mydb?schema=public"
+DATABASE_URL="postgresql://app:S3cre7@localhost:5432/app?schema=public"
 ```
 
 4\. Start the local [Docker](https://docs.docker.com/desktop/install/mac-install/) services...
