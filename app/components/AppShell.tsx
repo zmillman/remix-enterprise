@@ -18,7 +18,7 @@ export default function AppShell(
     <Box>
       <Flex justify="between">
         <Box>
-          <Link to="/">Logo here</Link>
+          <Link to="/">Home</Link>
         </Box>
         <Box>
           {props.user ? (
