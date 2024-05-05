@@ -27,8 +27,9 @@ const googleStrategy = new GoogleStrategy(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async ({ accessToken, refreshToken, extraParams, profile }) => {
     // Get the user data from your DB or API using the tokens and profile
-    throw new Error(`Got user: ${JSON.stringify(profile)}`);
     // return User.findOrCreate({ email: profile.emails[0].value })
+
+    return { name: profile.displayName, email: profile.emails[0].value };
   }
 );
 
