@@ -1,7 +1,9 @@
-import { Links, Meta, MetaFunction, Outlet, Scripts } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
+import { json, Links, Meta, type MetaFunction, Outlet, Scripts, } from "@remix-run/react";
+import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 import "@radix-ui/themes/styles.css";
 import { Container, Theme } from "@radix-ui/themes";
+import AppShell from "./components/AppShell";
+import { getSession } from "./services/session.server";
 
 export const links: LinksFunction = () => {
   return [{ rel: "icon", href: "/favicon-32.png" }];
@@ -10,6 +12,11 @@ export const links: LinksFunction = () => {
 export const meta: MetaFunction = () => {
   return [{ title: "Remix Enterprise" }];
 };
+
+export const loader = async ({request}: LoaderFunctionArgs) => {
+  const session = await getSession(request.headers.get("Cookie"));
+  return json({ user: session.data.user });
+}
 
 export default function App() {
   return (
@@ -21,9 +28,11 @@ export default function App() {
       </head>
       <body>
         <Theme>
-          <Container size="1" my="8">
-            <Outlet />
-          </Container>
+          <AppShell>
+            <Container size="1" my="8">
+              <Outlet />
+            </Container>
+          </AppShell>
 
           <Scripts />
         </Theme>
