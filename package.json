@@ -7,6 +7,7 @@
   },
   "scripts": {
     "dev": "node ./server.js",
+    "dev:docker": "docker compose --env-file .env.local up",
     "start": "cross-env NODE_ENV=production node ./server.js",
     "build": "tsc",
     "watch": "tsc -w",

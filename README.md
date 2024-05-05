@@ -45,7 +45,7 @@ npm install
 
 3\. Follow the steps on [the Google documentation](https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred) to configure a new application and get a client ID and secret. (The callback url is `http://localhost:3000/auth/google/callback`)
 
-```
+```sh
 # .env.local
 GOOGLE_CLIENT_ID=<your client id>
 GOOGLE_CLIENT_SECRET=<your client secret>
@@ -57,7 +57,23 @@ Then configure a secret for encrypting session cookies:
 echo "AUTH_SECRET=`openssl rand -base64 33`" >> .env.local
 ```
 
-4\. Run the dev server and open [localhost:3000](http://localhost:3000/)
+And some settings for the database:
+
+```sh
+# .env.local
+DATABASE_USER=app
+DATABASE_DB=app
+DATABASE_PASSWORD=S3cre7
+DATABASE_URL="postgresql://app:S3cre7@localhost:5432/mydb?schema=public"
+```
+
+4\. Start the local [Docker](https://docs.docker.com/desktop/install/mac-install/) services...
+
+```sh
+npm run dev:docker
+```
+
+...then open a new tab, run the dev server and open [localhost:3000](http://localhost:3000/):
 
 ```sh
 npm run dev
