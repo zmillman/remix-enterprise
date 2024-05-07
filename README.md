@@ -46,7 +46,7 @@ npm install
 3\. Follow the steps on [the Google documentation](https://developers.google.com/identity/protocols/oauth2/web-server#creatingcred) to configure a new application and get a client ID and secret. (The callback url is `http://localhost:3000/auth/google/callback`)
 
 ```sh
-# .env.local
+# .env
 GOOGLE_CLIENT_ID=<your client id>
 GOOGLE_CLIENT_SECRET=<your client secret>
 ```
@@ -54,16 +54,16 @@ GOOGLE_CLIENT_SECRET=<your client secret>
 Then configure a secret for encrypting session cookies:
 
 ```sh
-echo "AUTH_SECRET=`openssl rand -base64 33`" >> .env.local
+echo "AUTH_SECRET=`openssl rand -base64 33`" >> .env
 ```
 
 And some settings for the database:
 
 ```sh
-# .env.local
+# .env
 DATABASE_USER=app
 DATABASE_DB=app
-DATABASE_PASSWORD=S3cre7
+DATABASE_PASSWORD=S3cre7 # arbitrary secret
 DATABASE_URL="postgresql://app:S3cre7@localhost:5432/app?schema=public"
 ```
 
