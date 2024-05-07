@@ -7,4 +7,6 @@ cdk.out
 
 # App build artifacts
 build
-.env.local
+
+# Environment variables
+.env
