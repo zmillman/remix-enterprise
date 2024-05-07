@@ -1,5 +1,6 @@
 import { type PrismaClient } from "@prisma/client";
 import { GoogleExtraParams, GoogleProfile } from "remix-auth-google";
+import { parseEmail } from "../utils/email";
 
 const GOOGLE_PROVIDER_ID = "google";
 
@@ -38,12 +39,18 @@ export const findOrCreateGoogleUser = async (
   if (existingAccount) {
     return existingAccount.userId;
   } else {
+    const profileEmail = profile.emails[0].value;
+    const organization = await findOrCreateOrganization(prisma, {
+      domain: parseEmail(profileEmail).domain,
+    });
+
     const newAccount = await prisma.userAccount.create({
       data: {
         user: {
           create: {
+            organizationId: organization.id,
             name: profile.displayName,
-            email: profile.emails[0].value,
+            email: profileEmail,
             image: profile.photos[0].value,
           },
         },
@@ -61,5 +68,21 @@ export const findOrCreateGoogleUser = async (
     });
 
     return newAccount.userId;
+  }
+};
+
+const findOrCreateOrganization = async (
+  prisma: PrismaClient,
+  { domain }: { domain: string }
+) => {
+  const existingOrganization = await prisma.organization.findUnique({
+    where: {
+      domain: domain,
+    },
+  });
+  if (existingOrganization) {
+    return existingOrganization;
+  } else {
+    return prisma.organization.create({ data: { domain } });
   }
 };
