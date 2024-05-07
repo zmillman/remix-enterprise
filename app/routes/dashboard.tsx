@@ -1,7 +1,8 @@
-import { Box, Heading, Text } from "@radix-ui/themes";
+import { Avatar, Box, Heading, Text } from "@radix-ui/themes";
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { authenticatedUser } from "../services/auth.server";
+import { nameInitials } from "../utils/strings";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return json({ user: await authenticatedUser(request) });
@@ -19,6 +20,9 @@ export default function DashboardPage() {
       <Text as="p" mb="4">
         You're only able to see this page if you're signed in.
       </Text>
+      <Avatar
+        src={data.user.image}
+        fallback={nameInitials(data.user.name)}/>
     </Box>
   );
 }
