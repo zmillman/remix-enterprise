@@ -21,7 +21,7 @@ export const findOrCreateGoogleUser = async (
     refreshToken?: string;
     profile: GoogleProfile;
     extraParams: GoogleExtraParams;
-  },
+  }
 ): Promise<string> => {
   if (profile.provider != "google") {
     throw new Error('Expected provider to be "google"');
@@ -73,7 +73,7 @@ export const findOrCreateGoogleUser = async (
 
 const findOrCreateOrganization = async (
   prisma: PrismaClient,
-  { domain }: { domain: string },
+  { domain }: { domain: string }
 ) => {
   const existingOrganization = await prisma.organization.findUnique({
     where: {

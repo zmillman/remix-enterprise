@@ -21,7 +21,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
         headers: {
           "Set-Cookie": await commitSession(session), // clear flash message from the cookie
         },
-      },
+      }
     );
   }
 }
