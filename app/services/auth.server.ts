@@ -5,14 +5,14 @@ import { redirect } from "@remix-run/server-runtime";
 import { prisma } from "../utils/db.server";
 import { findOrCreateGoogleUser } from "../models/google-user.server";
 
-// TODO: This should only be storing a session token that identifies the user - nothing else
-interface User {
+// We only store the user's id in the session - nothing else
+interface SessionUser {
   id: string;
 }
 
 // Create an instance of the authenticator, pass a generic with what
 // strategies will return and will store in the session
-export const authenticator = new Authenticator<User>(sessionStorage, {
+export const authenticator = new Authenticator<SessionUser>(sessionStorage, {
   sessionErrorKey: "auth-error",
   throwOnError: true,
 });
