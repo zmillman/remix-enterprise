@@ -2,11 +2,12 @@ import { Authenticator } from "remix-auth";
 import { commitSession, getSession, sessionStorage } from "./session.server";
 import { GoogleStrategy } from "remix-auth-google";
 import { redirect } from "@remix-run/server-runtime";
+import { prisma } from "../utils/db.server";
+import { findOrCreateUserId } from "../model/user.server";
 
-// TODO: Make this a persisted schema
+// TODO: This should only be storing a session token that identifies the user - nothing else
 interface User {
-  name: string;
-  email: string;
+  id: string;
 }
 
 // Create an instance of the authenticator, pass a generic with what
@@ -33,13 +34,14 @@ const googleStrategy = new GoogleStrategy(
     callbackURL: "http://localhost:3000/auth/google/callback",
     prompt: "select_account", // always ask the user to pick their account
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async ({ accessToken, refreshToken, extraParams, profile }) => {
+
+  async ({ accessToken: _a, refreshToken: _r, extraParams: _e, profile }) => {
     // Get the user data from your DB or API using the tokens and profile
     // return User.findOrCreate({ email: profile.emails[0].value })
-
-    return { name: profile.displayName, email: profile.emails[0].value };
-  },
+    return {
+      id: findOrCreateUserId(prisma, { email: profile.emails[0].value }),
+    };
+  }
 );
 
 authenticator.use(googleStrategy);
