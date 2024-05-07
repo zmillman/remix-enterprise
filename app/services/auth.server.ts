@@ -44,7 +44,7 @@ const googleStrategy = new GoogleStrategy(
       profile,
     });
     return { id: userId };
-  }
+  },
 );
 
 authenticator.use(googleStrategy);

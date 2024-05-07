@@ -2,7 +2,7 @@
  * Simplified email address parser
  */
 export const parseEmail = (
-  email: string
+  email: string,
 ): { address: string; local: string; domain: string } => {
   // TODO: reject invalid emails
 

@@ -20,9 +20,7 @@ export default function DashboardPage() {
       <Text as="p" mb="4">
         You're only able to see this page if you're signed in.
       </Text>
-      <Avatar
-        src={data.user.image}
-        fallback={nameInitials(data.user.name)}/>
+      <Avatar src={data.user.image} fallback={nameInitials(data.user.name)} />
     </Box>
   );
 }
