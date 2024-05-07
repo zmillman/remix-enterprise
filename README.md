@@ -73,7 +73,13 @@ DATABASE_URL="postgresql://app:S3cre7@localhost:5432/app?schema=public"
 npm run dev:docker
 ```
 
-...then open a new tab, run the dev server and open [localhost:3000](http://localhost:3000/):
+...then open a new tab and populate the DB schema:
+
+```sh
+npx prisma migrate deploy
+```
+
+5. Run the dev server and open [localhost:3000](http://localhost:3000/):
 
 ```sh
 npm run dev
